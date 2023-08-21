@@ -12,7 +12,7 @@ router.get('/img/:id', async (ctx, next) => {
 
 	ctx.body = ({
 		"name": `Loan #${id}`,
-		"image": `https://blog-api.obby.space/image/${id}`,
+		"image": `ipfs://QmQqzMTavQgT4f4T5v6PWBp7XNKtoPmC9jvn12WPT3gkSE`,
 		"description": `NFT token of ${id} loan`,
 	});
 });
