@@ -4,7 +4,7 @@ const Router = require('@koa/router');
 const app = new Koa();
 const router = new Router();
 
-router.get('/img/:id', (ctx) => {
+router.get('/img/:id', (ctx, next) => {
 
 	const id = ctx.request.params.id;
 
@@ -15,7 +15,7 @@ router.get('/img/:id', (ctx) => {
 		</text>    
   	</svg>`;
 
-	ctx.header['Content-Type'] = 'image/svg+xml';
+	ctx.type = 'image/svg+xml';
 })
 
 app
