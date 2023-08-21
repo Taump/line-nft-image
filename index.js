@@ -15,7 +15,7 @@ router.get('/img/:id', (ctx, next) => {
 		</text>    
   	</svg>`;
 
-	ctx.type = 'image/svg';
+	ctx.type = "image/svg+xml";
 })
 
 app
