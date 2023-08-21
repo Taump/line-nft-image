@@ -7,9 +7,10 @@ const router = new Router();
 
 router.get('/img/:id', async (ctx, next) => {
 	const id = ctx.request.params.id;
+
 	ctx.type = "application/json";
-	
-	return ({
+
+	ctx.body = ({
 		"title": `Loan #${id}`,
 		"type": "object",
 		"properties": {
