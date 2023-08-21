@@ -11,22 +11,9 @@ router.get('/img/:id', async (ctx, next) => {
 	ctx.type = "application/json";
 
 	ctx.body = ({
-		"title": `Loan #${id}`,
-		"type": "object",
-		"properties": {
-			"name": {
-				"type": "string",
-				"description": "Identifies the asset to which this NFT represents"
-			},
-			"description": {
-				"type": "string",
-				"description": "Describes the asset to which this NFT represents"
-			},
-			"image": {
-				"type": "string",
-				"description": `https://blog-api.obby.space/image/${id}`
-			}
-		}
+		"name": `Loan #${id}`,
+		"image": `https://blog-api.obby.space/image/${id}`,
+		"description": `NFT token of ${id} loan`,
 	});
 });
 
