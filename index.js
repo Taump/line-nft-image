@@ -6,6 +6,30 @@ const app = new Koa();
 const router = new Router();
 
 router.get('/img/:id', async (ctx, next) => {
+	const id = ctx.request.params.id;
+	ctx.type = "application/json";
+	
+	return ({
+		"title": `Loan #${id}`,
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"description": "Identifies the asset to which this NFT represents"
+			},
+			"description": {
+				"type": "string",
+				"description": "Describes the asset to which this NFT represents"
+			},
+			"image": {
+				"type": "string",
+				"description": `https://blog-api.obby.space/image/${id}`
+			}
+		}
+	});
+});
+
+router.get('/image/:id', async (ctx, next) => {
 
 	const id = ctx.request.params.id;
 
@@ -16,6 +40,7 @@ router.get('/img/:id', async (ctx, next) => {
 		</text>    
   	</svg>`;
 
+	
 	ctx.body = await svg2png(img, { width: 300, height: 300 });
 
 
