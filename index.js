@@ -5,7 +5,7 @@ const svg2png = require("svg2png");
 const app = new Koa();
 const router = new Router();
 
-router.get('/meta/:id', async (ctx) => {
+router.get('/meta/:id', async (ctx, next) => {
 	const id = Number(ctx.request.params.id || 0);
 
 	if(!id || id < 0 || id > 9999) {
