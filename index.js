@@ -5,7 +5,7 @@ const svg2png = require("svg2png");
 const app = new Koa();
 const router = new Router();
 
-router.get('/img/:id', async (ctx) => {
+router.get('/meta/:id', async (ctx) => {
 	const id = ctx.request.params.id;
 
 	ctx.type = "application/json";
