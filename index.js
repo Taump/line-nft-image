@@ -6,7 +6,13 @@ const app = new Koa();
 const router = new Router();
 
 router.get('/meta/:id', async (ctx) => {
-	const id = ctx.request.params.id;
+	const id = Number(ctx.request.params.id || 0);
+
+	if(!id || id < 0 || id > 9999) {
+		ctx.status = 400;
+		ctx.body = "Bad request";
+		return next();
+	}
 
 	ctx.type = "application/json";
 
