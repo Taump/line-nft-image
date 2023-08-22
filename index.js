@@ -101,7 +101,7 @@ router.get('/image/:id', async (ctx, next) => {
 		<path d="M52.6924 83.0771H88.4616" stroke="#0281EB" stroke-width="3" stroke-linecap="round"/>
 		<path d="M52.6924 96.9229H88.4616" stroke="#0281EB" stroke-width="3" stroke-linecap="round"/>
 		<g>
-			<text x="140" y="107" class="number">${number}</text>
+			<text x="137" y="107" class="number">${number}</text>
 		</g>
 	</svg>			
 	`;
