@@ -18,7 +18,7 @@ router.get('/meta/:id', async (ctx, next) => {
 
 	ctx.body = ({
 		"name": `Loan #${id}`,
-		"image": `https://kava.obyte.org/image/${id}`,
+		"image": `https://linetoken.org/image/${id}`,
 		"description": `NFT token of loan #${id}`,
 	});
 });
