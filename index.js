@@ -41,7 +41,7 @@ router.get('/image/:id', async (ctx, next) => {
 		.number {
 			font: 48px serif;
 			fill: #0281EB;
-			letter-spacing: 5px;
+			letter-spacing: ${isWithoutSpace ? 4 : 5}px;
 		}
 		</style>
 		<path d="M60 1H10C4.47715 1 0 5.47715 0 11V61H60V1Z" fill="#030712"/>
