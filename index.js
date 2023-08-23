@@ -8,7 +8,7 @@ const router = new Router();
 router.get('/meta/:id', async (ctx, next) => {
 	const id = Number(ctx.request.params.id || 0);
 
-	if(!id || id < 0 || id > 9999) {
+	if(!id || id < 0) {
 		ctx.status = 400;
 		ctx.body = "Bad request";
 		return next();
@@ -26,13 +26,15 @@ router.get('/meta/:id', async (ctx, next) => {
 router.get('/image/:id', async (ctx, next) => {
 	const id = Number(ctx.request.params.id || 0);
 
-	if(!id || id < 0 || id > 9999) {
+	if(!id || id < 0) {
 		ctx.status = 400;
 		ctx.body = "Bad request";
 		return next();
 	}
 
-	const number = "0".repeat(4 - String(id).length) + String(id);
+	const repeatCount = String(id).length >= 5 ? 0 : 4 - String(id).length;
+	const number = "0".repeat(repeatCount) + String(id);
+	const isWithoutSpace = String(id).length > 4;
 
 	const img = `<svg width="296" height="181" viewBox="0 0 296 181" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<style>
@@ -107,7 +109,7 @@ router.get('/image/:id', async (ctx, next) => {
 		<path d="M52.6924 83.0771H88.4616" stroke="#0281EB" stroke-width="3" stroke-linecap="round"/>
 		<path d="M52.6924 96.9229H88.4616" stroke="#0281EB" stroke-width="3" stroke-linecap="round"/>
 		<g>
-			<text x="137" y="107" class="number">${number}</text>
+			<text x=${isWithoutSpace ? "110" : "137"} y="107" class="number">${number}</text>
 		</g>
 	</svg>			
 	`;
